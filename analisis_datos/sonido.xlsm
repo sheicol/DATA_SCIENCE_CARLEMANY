@@ -1,0 +1,8 @@
+Private Sub Workbook_SheetChange(ByVal Sh As Object, ByVal Target As Range)
+    Dim celda As Range
+    For Each celda In Target
+        If InStr(1, celda.Value, Chr(10)) > 0 Then
+            Beep   ' Hace un sonido
+        End If
+    Next celda
+End Sub

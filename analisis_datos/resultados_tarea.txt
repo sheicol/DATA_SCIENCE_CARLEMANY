@@ -1,0 +1,79 @@
+=== Tarea 2: price vs clarity ===
+Eta cuadrado: 0.0272
+
+=== Tarea 3: ANOVA price ~ color ===
+                sum_sq       df           F  PR(>F)
+C(color)  2.684911e+10      6.0  290.205881     0.0
+Residual  8.316240e+11  53933.0         NaN     NaN
+
+Tukey HSD:
+   Multiple Comparison of Means - Tukey HSD, FWER=0.05   
+=========================================================
+group1 group2  meandiff p-adj    lower     upper   reject
+---------------------------------------------------------
+     D      E  -93.2016 0.7437 -276.1437   89.7404  False
+     D      F  554.9323    0.0  370.9936   738.871   True
+     D      G  829.1816    0.0  651.2593 1007.1038   True
+     D      H 1316.7151    0.0 1127.1688 1506.2614   True
+     D      I 1921.9209    0.0 1710.9515 2132.8902   True
+     D      J 2153.8639    0.0 1894.0127 2413.7152   True
+     E      F  648.1339    0.0  481.6095  814.6584   True
+     E      G  922.3832    0.0  762.5293 1082.2371   True
+     E      H 1409.9167    0.0 1237.2183 1582.6151   True
+     E      I 2015.1225    0.0 1819.1505 2211.0945   True
+     E      J 2247.0655    0.0 1999.2357 2494.8954   True
+     F      G  274.2493    0.0  113.2557  435.2428   True
+     F      H  761.7828    0.0   588.029  935.5366   True
+     F      I 1366.9886    0.0 1170.0859 1563.8913   True
+     F      J 1598.9316    0.0 1350.3652 1847.4981   True
+     G      H  487.5335    0.0  320.1619  654.9052   True
+     G      I 1092.7393    0.0  901.4449 1284.0337   True
+     G      J 1324.6823    0.0 1080.5345 1568.8302   True
+     H      I  605.2058    0.0  403.0548  807.3567   True
+     H      J  837.1488    0.0  584.4046  1089.893   True
+     I      J  231.9431 0.1449  -37.2407  501.1269  False
+---------------------------------------------------------
+
+=== Tarea 4: price vs depth ===
+Correlación Pearson: -0.0106, p-valor: 0.0134
+
+=== Tarea 6: Modelo de regresión lineal (price ~ depth * color) ===
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  price   R-squared:                       0.033
+Model:                            OLS   Adj. R-squared:                  0.032
+Method:                 Least Squares   F-statistic:                     139.4
+Date:                Sun, 10 Aug 2025   Prob (F-statistic):               0.00
+Time:                        15:55:35   Log-Likelihood:            -5.2288e+05
+No. Observations:               53940   AIC:                         1.046e+06
+Df Residuals:                   53926   BIC:                         1.046e+06
+Df Model:                          13                                         
+Covariance Type:            nonrobust                                         
+=======================================================================================
+                          coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------
+Intercept            5155.0370   2085.514      2.472      0.013    1067.412    9242.662
+C(color)[T.E]       -1290.3510   2686.427     -0.480      0.631   -6555.769    3975.067
+C(color)[T.F]       -2431.4560   2706.355     -0.898      0.369   -7735.933    2873.021
+C(color)[T.G]         243.1638   2668.813      0.091      0.927   -4987.732    5474.059
+C(color)[T.H]        3005.5996   2785.103      1.079      0.281   -2453.225    8464.425
+C(color)[T.I]        1.654e+04   3074.582      5.381      0.000    1.05e+04    2.26e+04
+C(color)[T.J]        8981.7495   3619.745      2.481      0.013    1887.020    1.61e+04
+depth                 -32.1741     33.793     -0.952      0.341     -98.409      34.061
+depth:C(color)[T.E]    19.3959     43.540      0.445      0.656     -65.943     104.735
+depth:C(color)[T.F]    48.4042     43.854      1.104      0.270     -37.550     134.358
+depth:C(color)[T.G]     9.5198     43.229      0.220      0.826     -75.209      94.249
+depth:C(color)[T.H]   -27.2398     45.084     -0.604      0.546    -115.605      61.126
+depth:C(color)[T.I]  -236.3488     49.755     -4.750      0.000    -333.868    -138.829
+depth:C(color)[T.J]  -110.2296     58.532     -1.883      0.060    -224.952       4.493
+==============================================================================
+Omnibus:                    14657.435   Durbin-Watson:                   0.061
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            32894.738
+Skew:                           1.572   Prob(JB):                         0.00
+Kurtosis:                       5.180   Cond. No.                     2.30e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.3e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
